@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import { Card, CardImg,CardImgOverlay,CardBody, CardTitle} from 'reactstrap'
+import React, { Component } from 'react'
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap'
 import CampsiteInfo from './CampsiteInfoComponent';
 
 class Directory extends Component {
@@ -10,33 +10,14 @@ class Directory extends Component {
         };
     }
 
-
-    onCampsiteSelect(campsite) {
-        this.setState({selectedCampsite: campsite});
-    }
-
-    renderSelectedCampsite(campsite){
-        if(campsite){
-            return (
-                <Card>
-                    <CardImg top src={campsite.image} alt={campsite.name}/>
-                    <CardBody>
-                        <CardTitle>{campsite.name}</CardTitle>
-                        <CardTitle>{campsite.description}</CardTitle>
-                    </CardBody>
-                    
-                </Card>
-               
-            )
-        }
-
-        return <div />
+   onCampsiteSelect(campsite) {
+        this.setState({ selectedCampsite: campsite });
     }
 
     render() {
-        const directory =  this.props.campsites.map(campsite => {
+        const directory = this.props.campsites.map(campsite => {
             return (
-                <div className="col-md-5 m-1" key={campsite.id}>
+                <div key={campsite.id} className="col-md-5 m-1" >
                     <Card onClick={() => this.onCampsiteSelect(campsite)}>
                         <CardImg width='100%' src={campsite.image} alt={campsite.name} />
                         <CardImgOverlay>
@@ -46,13 +27,13 @@ class Directory extends Component {
                 </div>
             );
         });
-        
+
         return (
             <div className='container'>
                 <div className="row">
                     {directory}
                 </div>
-                <CampsiteInfo  campsite={this.state.selectedCampsite}/>
+                <CampsiteInfo campsite={this.state.selectedCampsite} />
             </div>
         );
     }

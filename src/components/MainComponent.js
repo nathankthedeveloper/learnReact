@@ -6,6 +6,7 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { CAMPSITES } from '../shared/campsites';
+import { COMMENTS } from '../shared/comments';
 import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions'
 
@@ -14,7 +15,7 @@ class Main extends Component {
         super(props);
         this.state = {
             campsites: CAMPSITES,
-            // comments: COMMENTS,
+            comments: COMMENTS,
             partners: PARTNERS,
             promotions: PROMOTIONS
         };

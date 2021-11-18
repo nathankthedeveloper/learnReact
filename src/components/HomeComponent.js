@@ -20,18 +20,13 @@ function Home(props) {
                 <div class="col-md m-1">
                     <RenderCard item={props.campsite} />
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md m-1">
                     <RenderCard item={props.promotion} />
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md m-1">
                     <RenderCard item={props.partner} />
                 </div>
             </div>
-            <h4>Home</h4>
         </div>
     );
 }

@@ -8,9 +8,6 @@ import { Link } from 'react-router-dom';
 function About(props) {
 
     const partners = props.partners.map(partner => { 
-        // return (
-        //      <h5>{partner.name}</h5>
-        // );
         return(
             <Media tag='li' key={partner.id}>
             {RenderPartner(partner)}

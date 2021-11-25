@@ -5,35 +5,36 @@ import { Link } from 'react-router-dom';
 
 
 
-function About(props) {
+// I can't get the RenderPartner component to render inside the About component function and I am not sure why?
+// Will work on it later.
 
-    const partners = props.partners.map(partner => { 
-        return(
-            <Media tag='li' key={partner.id}>
-            {RenderPartner(partner)}
-        </Media>
-        )
-        
-    });
-
-    
 function RenderPartner(partner){
+    
     if(partner){
         return(
             <React.Fragment>
                 <Media object src={partner.image} alt={partner.name}  width='150' />
                     <Media body className="ml-5 mb-4" >
                         <Media heading>{partner.name}</Media> 
+                        {partner.description}
                     </Media>
             </React.Fragment>
         )
+
+    } else{
+        return(<div> </div>)
     }
-    return(
-        <div></div>
-    )
-    
 }
 
+function About(props) {
+
+    const partners = props.partners.map(partner => { 
+        return(
+            <Media tag="li" key={partner.id}>
+                <RenderPartner partners={props.partners} />
+            </Media>
+        )
+    });
 
     return (
         <div className="container">

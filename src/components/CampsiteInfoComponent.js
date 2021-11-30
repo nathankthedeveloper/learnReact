@@ -48,12 +48,12 @@ class CommentForm extends Component{
     return(
         <React.Fragment>
              <Button outline onClick={this.toggleModal}>
-            <i className="fa fa-pencil fa-lg">Submit Comment</i>
-        </Button>
+                <i className="fa fa-pencil fa-lg">Submit Comment</i>
+            </Button>
 
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-        <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
-        <ModalBody>
+            <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+            <ModalBody>
             <LocalForm onSubmit={ values => this.handleSubmit(values)}>
                 <div className="form-group">
                     <Label htmlFor="rating">Rating</Label>

@@ -10,21 +10,15 @@ function RenderCard({item, isLoading, errMess}){
     if (errMess) {
         return <h4>{errMess}</h4>;
     }
-
-    console.log(item)
     return(
         <Card>
-            {
-                <React.Fragment>
+            <React.Fragment>
                         <CardImg src={baseUrl + item.image} alt={item.name} />
                 <CardBody>
                     <CardTitle>{item.name}</CardTitle>
                      <CardText>{item.description}</CardText>
                 </CardBody>
-                </React.Fragment>
-            }
-        
-          
+            </React.Fragment>
         </Card>
     )
 }

@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 function RenderPartner(partner){
     
     if(partner){
+        console.log(partner);
         return(
             <React.Fragment>
                 <Media object src={partner.image} alt={partner.name}  width='150' />
@@ -31,7 +32,7 @@ function About(props) {
     const partners = props.partners.map(partner => { 
         return(
             <Media tag="li" key={partner.id}>
-                <RenderPartner partners={props.partners} />
+                <RenderPartner partner={partner} />
             </Media>
         )
     });

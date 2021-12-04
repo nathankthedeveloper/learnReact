@@ -127,7 +127,7 @@ function RenderCampsite({campsite}) {
         )
     }
 
-function RenderComments({comments, addComment, campsiteId}){
+function RenderComments({comments, postComment, campsiteId}){
         if (comments) {
             return (
                 <div className="col-md-5 m-1">
@@ -144,7 +144,7 @@ function RenderComments({comments, addComment, campsiteId}){
                              
                         )
                     })}
-                     <CommentForm campsiteId = {campsiteId} addComment={addComment} />
+                     <CommentForm campsiteId = {campsiteId} postComment={postComment} />
                 </div>
             )
         }

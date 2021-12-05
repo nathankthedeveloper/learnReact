@@ -18,16 +18,15 @@ function RenderCard({item, isLoading, errMess}){
                 exitTransform: 'scale(0.5) translateY(50%)'
             }}>
             <Card>
-                <React.Fragment>
-                            <CardImg src={baseUrl + item.image} alt={item.name} />
-                    <CardBody>
-                        <CardTitle>{item.name}</CardTitle>
-                        <CardText>{item.description}</CardText>
-                    </CardBody>
-                </React.Fragment>
+                    <React.Fragment>
+                        <CardImg src={baseUrl + item.image} alt={item.name} />
+                        <CardBody>
+                            <CardTitle>{item.name}</CardTitle>
+                            <CardText>{item.description}</CardText>
+                        </CardBody>
+                    </React.Fragment>
             </Card>
         </FadeTransform>
-
     )
 }
 

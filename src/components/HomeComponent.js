@@ -12,21 +12,21 @@ function RenderCard({item, isLoading, errMess}){
         return <h4>{errMess}</h4>;
     }
     return(
-        <FadeTransform
+        <div>
+            <FadeTransform
             in
             transformProps ={{
                 exitTransform: 'scale(0.5) translateY(50%)'
             }}>
             <Card>
-                    <React.Fragment>
-                        <CardImg src={baseUrl + item.image} alt={item.name} />
-                        <CardBody>
-                            <CardTitle>{item.name}</CardTitle>
-                            <CardText>{item.description}</CardText>
-                        </CardBody>
-                    </React.Fragment>
+                <CardImg src={baseUrl + item.image} alt={item.name} />
+                    <CardBody>
+                        <CardTitle>{item.name}</CardTitle>
+                        <CardText>{item.description}</CardText>
+                </CardBody> 
             </Card>
         </FadeTransform>
+        </div>
     )
 }
 
@@ -34,14 +34,14 @@ function Home(props) {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md m-1">
+                <div className="col-md m-1 p-2">
                     <RenderCard 
                         item={props.campsites} 
                         isLoading={props.campsitesLoading}
                         errMess={props.campsitesErrMess}
                     />
                 </div>
-                <div className="col-md m-1">
+                <div className="col-md m-1 p-2">
                     <RenderCard 
                          item={props.promotion} 
                          isLoading={props.promotionLoading}
@@ -49,11 +49,11 @@ function Home(props) {
 
                     />
                 </div>
-                <div className="col-md m-1">
+                <div className="col-md m-1 p-2">
                     <RenderCard 
                         item={props.partner} 
-                        isLoading={props.partnerLoading}
-                        errMess={props.partnerErrMess}
+                        isLoading={props.partnersLoading}
+                        errMess={props.partnersErrMess}
                     />
                 </div>
             </div>

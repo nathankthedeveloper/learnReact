@@ -3,20 +3,17 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './LoadingComponent';
-
-
-
-// I can't get the RenderPartner component to render inside the About component function and I am not sure why?
-// Will work on it later.
-
+import { Fade, Stagger } from 'react-animation-components';
 
 function PartnerList (props){
 
     const partners = props.partners.partners.map(partner => { 
         return(
-            <Media tag="li" key={partner.id}>
-                <RenderPartner partner={partner} />
-            </Media>
+            <Fade in key={partner.id}>
+                <Media tag="li">
+                    <RenderPartner partner={partner} />
+                </Media>
+            </Fade>
         )
     });
 
@@ -29,20 +26,25 @@ function PartnerList (props){
                 </div>
     }
     return <div className="col mt-4">
-                <Media list>{partners}</Media>
+                <Stagger in>
+                    <Media list="true">
+                        {partners}
+                    </Media>
+                </Stagger>
+                
             </div>
 }
 function RenderPartner(partner){
     
     if(partner){
         return(
-            <React.Fragment>
-                <Media object src={baseUrl + partner.image} alt={partner.name}  width='150' />
+                <React.Fragment>
+                     <Media object src={baseUrl + partner.image} alt={partner.name}  width='150' />
                     <Media body className="ml-5 mb-4" >
                         <Media heading>{partner.name}</Media> 
                         {partner.description}
                     </Media>
-            </React.Fragment>
+                </React.Fragment>
         )
 
     } else{
@@ -51,15 +53,6 @@ function RenderPartner(partner){
 }
 
 function About(props) {
-
-    // const partners = props.partners.partners.map(partner => { 
-    //     return(
-    //         <Media tag="li" key={partner.id}>
-    //             <RenderPartner partner={partner} />
-    //         </Media>
-    //     )
-    // });
-
     return (
         <div className="container">
             <div className="row">
@@ -112,6 +105,7 @@ function About(props) {
                 <div className="col-12">
                     <h3>Community Partners</h3>
                 </div>
+                
                 <PartnerList partners={props.partners}/>
             </div>
         </div>

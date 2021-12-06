@@ -29,7 +29,7 @@ const mapDispatchToProps = {
     fetchComments: () => (fetchComments()),
     fetchPromotions: () => (fetchPromotions()),
     fetchPartners: () => (fetchPartners()),
-    postFeedback: (feedback) => (postFeedback(feedback))
+    postFeedback: (feedback) => {(postFeedback(feedback))}
 
 };
 
@@ -80,7 +80,7 @@ class Main extends Component {
                         <Switch>
                             <Route path='/home' component={HomePage} />
                             <Route exact path='/directory' render={() => <Directory campsites={this.props.campsites} />} />
-                            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={ this.props.resetFeedbackForm } postFeedback={this.props.postFeedback} />}/>
+                            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={ this.props.resetFeedbackForm } postFeedback={postFeedback} />}/>
                             <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />} />
                             <Route path='/directory/:campsiteId' component={CampsiteWithId} />
                             <Redirect to='/home' />
